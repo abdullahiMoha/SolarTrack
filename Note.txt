@@ -1,0 +1,14 @@
+# UTC time from the API
+sunrise_utc_str = sunrise
+
+# Convert to datetime object
+sunrise_utc = datetime.strptime(sunrise_utc_str, "%Y-%m-%dT%H:%M:%S%z")
+
+# Your local timezone
+local_tz = pytz.timezone("Africa/Mogadishu")
+
+# Convert UTC time to local time
+sunrise_local = sunrise_utc.astimezone(local_tz)
+
+# Display the result
+print("Sunrise in local time:", sunrise_local.strftime("%Y-%m-%d %H:%M:%S"))
